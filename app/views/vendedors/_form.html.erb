@@ -1,0 +1,74 @@
+<%# Ver CSS http://getbootstrap.com/css/%>
+<%= form_for @vendedor, :html => { :role=>"form", :class=>"form-horizontal" } do |f| %>
+<div class="col-md-6">
+<div class="form-group<%= @vendedor.errors[:rut].any? ? " has-error has-feedback" : "" %>">
+<%= f.label :rut, :class=>"col-sm-2 control-label" %>
+<div class="col-sm-5">
+  <%= f.text_field :rut, :class => 'form-control' %>
+  <%#Obtener solo el mensaje con la expresion regular /\w([^]*)/%>
+  <%if @vendedor.errors[:rut].any? %>
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    <p class="bg-warning"><%= @vendedor.errors[:rut].to_s[/\w([^"]*)/] %></p>
+  <% end -%>
+</div>
+</div>
+
+<div class="form-group<%= @vendedor.errors[:nombre].any? ? " has-error has-feedback" : "" %>">
+<%= f.label :nombre, :class=>"col-sm-2 control-label" %>
+<div class="col-sm-5">
+  <%= f.text_field :nombre, :class => 'form-control' %>
+  <%#Obtener solo el mensaje con la expresion regular /\w([^]*)/%>
+  <%if @vendedor.errors[:nombre].any? %>
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    <p class="bg-warning"><%= @vendedor.errors[:nombre].to_s[/\w([^"]*)/] %></p>
+  <% end -%>
+</div>
+</div>
+
+
+<div class="form-group<%= @vendedor.errors[:apellidoP].any? ? " has-error has-feedback" : "" %>">
+<%= f.label :apellidoP, :class=>"col-sm-2 control-label" %>
+<div class="col-sm-5">
+  <%= f.text_field :apellidoP, :class => 'form-control' %>
+  <%#Obtener solo el mensaje con la expresion regular /\w([^]*)/%>
+  <%if @vendedor.errors[:apellidoP].any? %>
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    <p class="bg-warning"><%= @vendedor.errors[:apellidoP].to_s[/\w([^"]*)/] %></p>
+  <% end -%>
+</div>
+</div>
+
+<div class="form-group<%= @vendedor.errors[:apellidoM].any? ? " has-error has-feedback" : "" %>">
+<%= f.label :apellidoM, :class=>"col-sm-2 control-label" %>
+<div class="col-sm-5">
+  <%= f.text_field :apellidoM, :class => 'form-control' %>
+  <%#Obtener solo el mensaje con la expresion regular /\w([^]*)/%>
+  <%if @vendedor.errors[:apellidoM].any? %>
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    <p class="bg-warning"><%= @vendedor.errors[:apellidoM].to_s[/\w([^"]*)/] %></p>
+  <% end -%>
+</div>
+</div>
+
+<div class="form-group<%= @vendedor.errors[:correo].any? ? " has-error has-feedback" : "" %>">
+<%= f.label :correo, :class=>"col-sm-2 control-label" %>
+<div class="col-sm-5">
+  <%= f.text_field :correo, :class => 'form-control' %>
+  <%#Obtener solo el mensaje con la expresion regular /\w([^]*)/%>
+  <%if @vendedor.errors[:correo].any? %>
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    <p class="bg-warning"><%= @vendedor.errors[:correo].to_s[/\w([^"]*)/] %></p>
+  <% end -%>
+</div>
+</div>
+
+
+
+        <%= f.hidden_field :usuario_id, :value => current_usuario.id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<div class="col-md-4"></div>
+</div>

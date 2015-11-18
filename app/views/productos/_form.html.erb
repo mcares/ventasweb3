@@ -1,0 +1,74 @@
+<%# Ver CSS http://getbootstrap.com/css/%>
+<%= form_for @producto, :html => { :role=>"form", :class=>"form-horizontal" } do |f| %>
+<div class="col-md-6">
+<div class="form-group<%= @producto.errors[:codigo].any? ? " has-error has-feedback" : "" %>">
+<%= f.label :codigo, :class=>"col-sm-2 control-label" %>
+<div class="col-sm-5">
+  <%= f.text_field :codigo, :class => 'form-control' %>
+  <%#Obtener solo el mensaje con la expresion regular /\w([^]*)/%>
+  <%if @producto.errors[:codigo].any? %>
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    <p class="bg-warning"><%= @producto.errors[:codigo].to_s[/\w([^"]*)/] %></p>
+  <% end -%>
+</div>
+</div>
+
+<div class="form-group<%= @producto.errors[:nombre].any? ? " has-error has-feedback" : "" %>">
+<%= f.label :nombre, :class=>"col-sm-2 control-label" %>
+<div class="col-sm-5">
+  <%= f.text_field :nombre, :class => 'form-control' %>
+  <%#Obtener solo el mensaje con la expresion regular /\w([^]*)/%>
+  <%if @producto.errors[:nombre].any? %>
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    <p class="bg-warning"><%= @producto.errors[:nombre].to_s[/\w([^"]*)/] %></p>
+  <% end -%>
+</div>
+</div>
+
+<div class="form-group<%= @producto.errors[:tipo].any? ? " has-error has-feedback" : "" %>">
+<%= f.label :tipo, :class=>"col-sm-2 control-label" %>
+<div class="col-sm-5">
+  <%= f.text_field :tipo, :class => 'form-control' %>
+  <%#Obtener solo el mensaje con la expresion regular /\w([^]*)/%>
+  <%if @producto.errors[:tipo].any? %>
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    <p class="bg-warning"><%= @producto.errors[:tipo].to_s[/\w([^"]*)/] %></p>
+  <% end -%>
+</div>
+</div>
+
+
+<div class="form-group<%= @producto.errors[:valor].any? ? " has-error has-feedback" : "" %>">
+<%= f.label :valor, :class=>"col-sm-2 control-label" %>
+<div class="col-sm-5">
+  <%= f.text_field :valor, :class => 'form-control' %>
+  <%#Obtener solo el mensaje con la expresion regular /\w([^]*)/%>
+  <%if @producto.errors[:valor].any? %>
+    <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    <p class="bg-warning"><%= @producto.errors[:valor].to_s[/\w([^"]*)/] %></p>
+  <% end -%>
+</div>
+</div>
+
+
+
+
+<div class="form-group<%= :empresa_id %>">
+<%= f.label :empresa_id, :class=>"col-sm-2 control-label" %>
+<div class="col-sm-5">
+  <%= f.select( "empresa_id",Empresa.all.collect{|l| [ l.nombre, l.id ] }, {include_blank: 'Selecciona Empresa'}) %>
+  <%#Obtener solo el mensaje con la expresion regular /\w([^]*)/%>
+
+</div>
+</div>
+
+<%= f.hidden_field :usuario_id, :value => current_usuario.id %>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
+<div class="col-md-4"></div>
+</div>

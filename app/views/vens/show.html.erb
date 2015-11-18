@@ -1,0 +1,23 @@
+
+<p>
+  <strong>Cantidad:</strong>
+  <%= @ven.cantidad %>
+</p>
+
+<p>
+  <strong>Vendedor:</strong>
+  <%= @ven.vendedor.nombre %>
+</p>
+
+<p>
+  <strong>Producto:</strong>
+  <%= @ven.producto.nombre %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @ven.cliente.nombre %>
+</p>
+
+<%= link_to 'Editar', edit_ven_path(@ven) %> |
+<%= link_to 'Volver', vens_path %>

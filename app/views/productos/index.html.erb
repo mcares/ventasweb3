@@ -1,0 +1,33 @@
+<h1>Listing productos</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Codigo</th>
+      <th>Nombre</th>
+      <th>Tipo</th>
+      <th>Valor</th>
+      <th>Empresa</th>
+      <th colspan="3"> Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @productos.each do |producto| %>
+      <tr>
+        <td><%= producto.codigo %></td>
+        <td><%= producto.nombre %></td>
+        <td><%= producto.tipo %></td>
+        <td><%= producto.valor %></td>
+        <td><%= producto.empresa.nombre%></td>
+        <td><%= link_to 'Detalle', producto %></td>
+        <td><%= link_to 'Editar', edit_producto_path(producto) %></td>
+        <td><%= link_to 'Eliminar', producto, method: :delete, data: { confirm: '¿Estas seguro de Eliminar el Producto?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Ingresar Producto', new_producto_path %>

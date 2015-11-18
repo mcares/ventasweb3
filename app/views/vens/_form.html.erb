@@ -1,0 +1,35 @@
+<%= form_for(@ven) do |f| %>
+  <% if @ven.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ven.errors.count, "error") %> prohibited this ven from being saved:</h2>
+
+      <ul>
+      <% @ven.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cantidad %><br>
+    <%= f.number_field :cantidad %>
+  </div>
+  <div class="field">
+    <%= f.label :vendedor_id %><br>
+    <%= f.select( "vendedor_id",Vendedor.all.collect{|l| [ l.nombre, l.id ] }, {include_blank: 'Selecciona vendedor'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :producto_id %><br>
+      <%= f.select( "producto_id",Producto.all.collect{|l| [ l.nombre, l.id ] }, {include_blank: 'Selecciona producto'}) %>
+  </div>
+  <div class="field">
+    <%= f.label :cliente_id %><br>
+      <%= f.select( "cliente_id",Cliente.all.collect{|l| [ l.nombre, l.id ] }, {include_blank: 'Selecciona Cliente'}) %>
+  </div>
+
+      <%= f.hidden_field :usuario_id, :value => current_usuario.id  %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

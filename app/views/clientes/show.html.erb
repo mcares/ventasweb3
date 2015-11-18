@@ -1,0 +1,63 @@
+
+
+<p>
+  <strong>Rut:</strong>
+  <%= @cliente.rut %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @cliente.nombre %>
+</p>
+
+<div class="col-md-3">
+<h2>Ventas</h2>
+<table class="table table-bordered">
+
+<thead>
+  <tr>
+    <th>Producto</th>
+    <th>Tipo</th>
+
+
+
+</tr>
+  </thead>
+<tr>
+
+  <% @productos.each do |producto| %>
+    <td><%= producto.nombre %></td>
+    <td><%= producto.tipo %></td>
+
+
+
+
+  </tr>
+  <% end %>
+</table>
+  <table class="table table-bordered">
+
+  <thead>
+    <tr>
+
+        <th>Vendedor</th>
+
+        </tr>
+          </thead>
+        <tr>
+<% @vendedors.each do |vendedor| %>
+  <td><%= vendedor.nombre %></td>
+
+
+
+
+  </tr>
+<% end %>
+</table>
+
+</div>
+
+<div class="col-md-3"></div>
+</div>
+<%= link_to 'Editar', edit_cliente_path(@cliente) %>
+<%= link_to 'Volver', clientes_path %>

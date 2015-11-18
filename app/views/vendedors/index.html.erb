@@ -1,0 +1,33 @@
+<h1>Listing vendedors</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Rut</th>
+      <th>Nombre</th>
+      <th>Apellidop</th>
+      <th>Apellidom</th>
+      <th>Correo</th>
+      <th colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendedors.each do |vendedor| %>
+      <tr>
+        <td><%= vendedor.rut %></td>
+        <td><%= vendedor.nombre %></td>
+        <td><%= vendedor.apellidoP %></td>
+        <td><%= vendedor.apellidoM %></td>
+        <td><%= vendedor.correo %></td>
+        <td><%= link_to 'Detalle', vendedor %></td>
+        <td><%= link_to 'Editar', edit_vendedor_path(vendedor) %></td>
+        <td><%= link_to 'Eliminar', vendedor, method: :delete, data: { confirm: '¿Estas seguro de Eliminar al Vendedor?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vendedor', new_vendedor_path %>

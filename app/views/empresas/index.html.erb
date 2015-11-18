@@ -1,0 +1,36 @@
+
+<html>
+<h1>Empresas Registradas</h1>
+<br></br>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Rut</th>
+      <th>Nombre</th>
+      <th>Rubro</th>
+      <th>Direccion</th>
+
+      <th  colspan="3" >Acciones</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @empresas.each do |empresa| %>
+      <tr>
+        <td><%= empresa.rut %></td>
+        <td><%= empresa.nombre %></td>
+        <td><%= empresa.rubro %></td>
+        <td><%= empresa.direccion %></td>
+        <td><%= link_to 'Detalle', empresa %></td>
+        <td><%= link_to 'Editar', edit_empresa_path(empresa) %></td>
+        <td><%= link_to 'Eliminar', empresa, method: :delete, data: { confirm: '¿Estas seguro de Eliminar la Empresa?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<a class="btn btn-default" href="<%=new_empresa_path %>" role="button">Nueva Empresa</a>

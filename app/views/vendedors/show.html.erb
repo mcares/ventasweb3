@@ -1,0 +1,57 @@
+
+<p>
+
+  <strong>Rut:</strong>
+  <%= @vendedor.rut %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @vendedor.nombre %>
+</p>
+
+<p>
+  <strong>Apellidop:</strong>
+  <%= @vendedor.apellidoP %>
+</p>
+
+<p>
+  <strong>Apellidom:</strong>
+  <%= @vendedor.apellidoM %>
+</p>
+
+<p>
+  <strong>Correo:</strong>
+  <%= @vendedor.correo %>
+</p>
+<br>
+<a class="btn btn-default btn-lg active" href="<%=edit_vendedor_path %>" role="button">Editar</a>
+<a class="btn btn-default btn-lg active" href="<%=vendedors_path %>" role="button">Volver</a>
+
+
+
+<h2>Ventas</h2>
+<table class="table table-bordered">
+
+<thead>
+  <tr>
+    <th>Producto</th>
+    <th>Tipo</th>
+
+
+</tr>
+</thead>
+
+<tbody>
+  <% @productos.each do |producto| %>
+<tr>
+    <td><%= producto.nombre %></td>
+    <td><%= producto.tipo %></td>
+  <% end %>
+
+
+</tr>
+
+
+</tbody>
+</table>

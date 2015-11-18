@@ -1,0 +1,31 @@
+<h1>Listing vens</h1>
+
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Cantidad</th>
+      <th>Vendedor</th>
+      <th>Producto</th>
+      <th>Cliente</th>
+      <th colspan="3">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vens.each do |ven| %>
+      <tr>
+        <td><%= ven.cantidad %></td>
+        <td><%= ven.vendedor.nombre %></td>
+        <td><%= ven.producto.nombre%></td>
+        <td><%= ven.cliente.nombre %></td>
+        <td><%= link_to 'Detalle', ven %></td>
+        <td><%= link_to 'Editar', edit_ven_path(ven) %></td>
+        <td><%= link_to 'Eliminar', ven, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Ingresa Venta', new_ven_path %>
